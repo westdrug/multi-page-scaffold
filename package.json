@@ -1,0 +1,53 @@
+{
+  "name": "multi-page-scaffold",
+  "version": "0.2.0",
+  "description": "多页面脚手架",
+  "author": "westdrug",
+  "bugs": {
+    "url": ""
+  },
+  "license": "MIT",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/westdrug/multi-page-scaffold.git"
+  },
+  "keywords": [
+    "webpack",
+    "multi-page-scaffold"
+  ],
+  "scripts": {
+    "dev": "cross-env ENV=DEV webpack-dev-server --inline --hot --quiet --progress --content-base dist/html  --host 127.0.0.1 --port 8090 --open",
+    "build": "cross-env CDN=http://127.0.0.1:8080/dist webpack"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "axios": "^0.16.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "cross-env": "^3.1.4",
+    "css-loader": "^0.26.1",
+    "ejs-compiled-loader": "^1.1.0",
+    "ejs-loader": "^0.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.11.1",
+    "html-webpack-harddisk-plugin": "^0.0.2",
+    "html-webpack-plugin": "^2.26.0",
+    "node-sass": "^4.5.2",
+    "postcss-loader": "^1.3.3",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "ejs": "^2.5.5"
+  }
+}

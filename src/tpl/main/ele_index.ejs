@@ -1,0 +1,19 @@
+<div class="content">
+    <%=name %>
+    <%=age %>
+    <%= (one+6) %>
+</div>
+<div class="img"></div>
+<div>
+    <ul>
+        <%if(flag){%>
+        <%for (var i=0;i<data1.length;i++){%>
+        <li><%=data1[i]%></li>
+        <%}%>
+        <%}else{%>
+        <%for(var i=0;i<data2.length;i++){%>
+        <li><%=data2[i]%></li>
+        <%}%>
+        <%}%>
+    </ul>
+</div>
