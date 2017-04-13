@@ -90,6 +90,10 @@ module.exports = {
 		      test: /\.(jpe?g|png|gif|svg)$/i,
 		      loader: 'url-loader?limit=8192&name=/assets/img/[name].[ext]'
 		    },
+			{ 
+				test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, 
+				loader: "file-loader" 
+			},
 			{
 				test: /(\.html|\.php)$/,
       			loader: "raw-loader"
