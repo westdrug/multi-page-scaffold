@@ -10,7 +10,8 @@ var CDN = process.env.CDN
 
 var entry = {
 		'vendor': [
-			'jquery'
+			'jquery',
+			'bootstrap'
 		]
 	},
 	plugins = []
@@ -24,7 +25,7 @@ for (chunk in map) {
 		template: ROOT + '/src/tpl/' + map[chunk].tpl + '.ejs',
 		chunks: ['vendor', chunk],
 		inject: 'body',
-		hash: false,
+		hash: true,
 		cache: true,
 		minify: {
 			removeComments: true,
@@ -56,6 +57,7 @@ module.exports = {
 	},
 	externals: {   //通过引用外部文件的方式引入第三方库，如下的配置
 		//'d3': 'window.d3'
+		//'bootstrap': 'bootstrap'
 	},
 	devServer: {   //设置服务器代理 调用返回数据
 		historyApiFallback: true,
@@ -110,12 +112,22 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'ENV': JSON.stringify(process.env.ENV)
 		}),
-		new webpack.optimize.CommonsChunkPlugin('vendor','vendor.js'),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendor',
+			filename: '/css/vendor.css',
+			minChunk: 2
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendor',
+			filename: 'js/vendor.js',
+			chunks: ['jquery', 'bootstrap']
+		}),
 		new ExtractTextPlugin('[name].css'),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery:"jquery",
 			"window.jQuery":"jquery",
+			bootstrap: 'bootstrap',
 			axios: 'axios'
 		})
 	])

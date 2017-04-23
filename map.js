@@ -1,20 +1,21 @@
 var path = require('path')
 var ROOT = path.resolve(__dirname)
+const webTitel = '—webpack构建'
 
 module.exports = {
-	'index/main': {
-		"src": ROOT + "/src/index/main",
+	'modules/index/main': {
+		"src": ROOT + "/src/modules/index/main",
 		"tpl": "index",
-		"title": "首页"
+		"title": "首页" + webTitel
 	},
-	'list/main': {
-		"src": ROOT + '/src/list/main',
+	'modules/list/main': {
+		"src": ROOT + '/src/modules/list/main',
 		"tpl": "list",
-		"title": "列表页"
+		"title": "列表页" + webTitel
 	},
-	'info/main': {
-		"src": ROOT + '/src/info/main',
+	'modules/info/main': {
+		"src": ROOT + '/src/modules/info/main',
 		"tpl": "info",
-		"title": "详情页"
+		"title": "详情页" + webTitel
 	}
 }

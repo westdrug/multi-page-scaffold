@@ -1,0 +1,11 @@
+h1 {
+	color: #999;
+	display: flex
+}
+path{
+	stroke: steelblue;
+	stroke-width: 2;
+	fill: none;
+}
+.img {background: url(../../assets/img/2.gif) no-repeat 0 0;width: 100px;height: 50px}
+.move-list>ul>li {padding: 10px;overflow: hidden;clear: both}
