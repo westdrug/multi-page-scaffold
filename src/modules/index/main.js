@@ -1,6 +1,7 @@
 if(ENV == 'DEV') {
 	require('dist/html/index.html')
 }
+require('bootstrap')
 import 'src/assets/css/reset.scss'
 import './style.css'
 import api from 'src/api/api'
@@ -31,8 +32,9 @@ module.exports = $(() => {
 	 */
 
 	let _url = api.videoList
-	axios.get(_url,{withCredentinals: true})  // withCredentinals: true 解决跨域
+	axios.post(_url,{withCredentinals: true})  // withCredentinals: true 解决跨域
 		.then(function(response) {
+			console.log(response);
 			console.log(response.data);
 			console.log(response.status);
 			console.log(response.statusText);
@@ -45,11 +47,13 @@ module.exports = $(() => {
 
     /** 2、使用jquery封装ajax请求数据 */
 	// $.ajax({
-	// 	type: 'GET',
+	// 	type: 'POST',
 	// 	url: _url,
+	// 	async: false,
 	// 	data: '',
 	// 	contentType: 'application/json; charset=utf-8',
-	// 	dataType: 'json',
+	// 	dataType: 'jsonp',
+	// 	jsonp: 'jsonpCallback',
 	// 	success: function(data) {
 	// 		console.log(data)
 	// 	},
