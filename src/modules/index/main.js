@@ -4,7 +4,8 @@ if(ENV == 'DEV') {
 require('bootstrap')
 import 'src/assets/css/reset.scss'
 import './style.css'
-import api from 'src/api/api'
+import head from 'src/assets/js/header'
+import api from 'api'
 
 import app from 'src/tpl/main/ele_index.ejs'
 
@@ -61,6 +62,12 @@ module.exports = $(() => {
 	// 		console.log(msg)
 	// 	}
 	// })
+	
+	$('button[type="button"]').on('click', function() {
+		require(['dialog'], function(dialog) {
+			dialog()
+		})
+	})
 })
 
  

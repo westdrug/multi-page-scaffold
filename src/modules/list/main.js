@@ -5,7 +5,7 @@ if(ENV == 'DEV') {
 import 'src/assets/css/reset.scss'
 import './style.css'
 import common from 'src/assets/js/common'
-console.log(common())
+common()
 
 let data = {
 	names: ['opp', 'xiaomi', 'apple', 'vivo']

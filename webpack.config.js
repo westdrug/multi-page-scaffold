@@ -25,11 +25,11 @@ for (chunk in map) {
 		template: ROOT + '/src/tpl/' + map[chunk].tpl + '.ejs',
 		chunks: ['vendor', chunk],
 		inject: 'body',
-		hash: true,
+		hash: false,
 		cache: true,
-		minify: {
-			removeComments: true,
-			collapseWhitespace: true
+		minify: {                       //压缩HTML文件
+			removeComments: true,       //移除HTML中的注释
+			collapseWhitespace: true    //删除空白符与换行符
 		}
 	}))
 }
@@ -41,19 +41,22 @@ if(ENV == 'DEV') {
 }
 
 module.exports = {
-	devtool: ENV == 'DEV' ? 'cheap-eval-source-map' : 'source-map',
+	devtool: ENV == 'DEV' ? 'cheap-eval-source-map' : '',
 	entry: entry,
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
-		publicPath: CDN ? CDN : 'http://127.0.0.1:8090/dist'
+		publicPath: CDN ? CDN : 'http://127.0.0.1:8090/dist/',
+		chunkFilename: "/libs/ensure/ensure.[name].js"//给require.ensure用
 	},
 	resolve: {
 		alias: {
 			'src': path.resolve(__dirname,'src'),
-			'dist': path.resolve(__dirname,'dist')
+			'dist': path.resolve(__dirname,'dist'),
+			'dialog': path.resolve(__dirname,'src/components/dialog/index'),
+			'api': path.resolve(__dirname, 'src/api/api')
 		},
-		extensions: ['', '.js', '.jsx']
+		extensions: ['', '.js', '.jsx', '.ejs', '.scss', '.css']
 	},
 	externals: {   //通过引用外部文件的方式引入第三方库，如下的配置
 		//'d3': 'window.d3'
@@ -94,7 +97,7 @@ module.exports = {
 		    },
 			{ 
 				test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, 
-				loader: "file-loader" 
+				loader: "file-loader?name=/assets/font/[name].[ext]"
 			},
 			{
 				test: /(\.html|\.php)$/,
@@ -118,15 +121,15 @@ module.exports = {
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
-			filename: '/css/vendor.css',
+			filename: 'vendor.css',
 			minChunk: 2
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
-			filename: 'js/vendor.js',
+			filename: 'libs/vendor.js',
 			chunks: ['jquery', 'bootstrap']
 		}),
-		new ExtractTextPlugin('[name].css'),
+		new ExtractTextPlugin('assets/css/[name].css'),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery:"jquery",
