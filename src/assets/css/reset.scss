@@ -41,15 +41,8 @@ body { font-size: 14px; line-height: 1.5; color: #333333; background-color: whit
 body, button, input, select, textarea { font-family: "Helvetica Neue", Helvetica, Tahoma, sans-serif; }
 img { vertical-align: middle; }
 textarea { resize: vertical; }
-h1, h2, h3, h4, h5, h6, p, figure, form { margin: 0; }
 ul, ol, li, dl, dd { margin: 0; padding: 0; }
 ul, ol { list-style: none outside none; }
-h1, h2, h3 { line-height: 2; font-weight: normal; }
-h1 { font-size: 21px; }
-h2 { font-size: 18.2px; }
-h3 { font-size: 16.38px; }
-h4 { font-size: 14px; }
-h5, h6 { font-size: 11.9px; text-transform: uppercase; }
 a { text-decoration: none; color: #0088cc; }
 a:hover { color: #006699; }
 input:-moz-placeholder, textarea:-moz-placeholder { color: #cccccc; }
@@ -356,5 +349,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #
 .icon-Calculator:before { content: "\e812"; }
 
 .icon-video:before { content: "\e820"; }
+
+.load-ico {background: url(../img/preview.gif) no-repeat 50% 50%;display: inline-block;width: 60px;height: 12px}
 
 #footer {background-color: #333333;height: 50px;line-height: 50px;font-size: 24px;color: #666;text-align: center}

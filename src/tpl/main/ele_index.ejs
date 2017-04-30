@@ -1,19 +1,42 @@
-<div class="content">
-    <%=name %>
-    <%=age %>
-    <%= (one+6) %>
-</div>
-<div class="img"></div>
-<div>
-    <ul>
-        <%if(flag){%>
-        <%for (var i=0;i<data1.length;i++){%>
-        <li><%=data1[i]%></li>
-        <%}%>
-        <%}else{%>
-        <%for(var i=0;i<data2.length;i++){%>
-        <li><%=data2[i]%></li>
-        <%}%>
-        <%}%>
-    </ul>
+<div class="">
+    <div class="bs-example">
+        <table class="table">
+        <caption>Optional table caption.</caption>
+        <thead>
+            <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>sort</th>
+            <th>originalTilte</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(subjects.length) {%>
+                <% subjects.forEach(function(subject) {%>
+                <tr>
+                <th scope="row">豆瓣评分：<b><%= subject.rating.average %></b></th>
+                <td>
+                    <div class="clearfix">
+                        <img src="<%= subject.images.small %>" alt="<%= subject.title %>" class="pull-left" style="margin-right: 10px">
+                        <h5><%= subject.title %></h5>
+                        <h6><small>发行年：<%= subject.year %></small></h6>
+                    </div>
+                </td>
+                <td>
+                    <%= subject.genres %>
+                </td>
+                <td><%= subject.original_title %></td>
+                </tr>
+                <%})%>
+            <%} else {%>
+                <tr>
+                    <td colspan="4">
+                        <h3 class="text-center">暂无数据！小编正在整理中...</h3>
+                    </td>
+                </tr>
+            <%}%>
+        </tbody>
+        </table>
+    </div>
+    <div class="img"></div>
 </div>

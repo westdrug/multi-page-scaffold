@@ -7,20 +7,10 @@ import './style.css'
 import head from 'src/assets/js/header'
 import api from 'api'
 
-import app from 'src/tpl/main/ele_index.ejs'
+import app from 'src/tpl/main/ele_index'
 
 module.exports = $(() => {
-	var user = {
-		name: 'wt',
-		age: '11',
-		one: '7',
-		flag: false,
-		data1: ["====1","====2","====3"],
-		data2:["====4","====5","====6"]
-	}
-
-	$('#app').html(app(user))
-
+	//$('#app').html(app())
     /** 1、 Axios 
 	 *      基于Promise的HTTP请求客户端，可同时在浏览器和node.js中使用
 	 *      在浏览器中发送XMLHttpRequests请求
@@ -35,12 +25,13 @@ module.exports = $(() => {
 	let _url = api.videoList
 	axios.post(_url,{withCredentinals: true})  // withCredentinals: true 解决跨域
 		.then(function(response) {
-			console.log(response);
-			console.log(response.data);
-			console.log(response.status);
-			console.log(response.statusText);
-			console.log(response.headers);
-			console.log(response.config);
+			$('#app').html(app(response.data))
+			//console.log(response);
+			//console.log(response.data);
+			//console.log(response.status);
+			//console.log(response.statusText);
+			//console.log(response.headers);
+			//console.log(response.config);
 		})
 		.catch(function(error) {
 			console.log(error)
